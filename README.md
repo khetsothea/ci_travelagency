@@ -1,8 +1,2 @@
-# ci_travelagency
-This guide will help the other users to use this travel agency project
-At first download the project
-Since the project is written in Codeigniter(PHP Framework), you should have the working server of php and mysql
-You can work locally as well
-import the sql in your server and name it travel_agency
-modify the username and password of the my sql
-Your suggestions will be appreciated
+#Travel agency
+This guide will help the other users to use this travel agency project. At first download the project. Since the project is written in Codeigniter(PHP Framework), you should have the working knowledge of PHP and Codeigniter. If you do not know PHP or I suggest you to study PHP and Codeigniter first. You can work locally as well. Import the sql in your server and name it travel_agency. Modify the username and password of the my sql and you are ready to go. Your suggestions will be appreciated. Thank you!!!!
