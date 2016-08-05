@@ -35,7 +35,7 @@
                     <li class="list-group-item"><strong>5</strong> locations</li>
                     <li class="list-group-item" style="height:80px;"><?=$data['facilities']?></li>
                     <li class="list-group-item">
-                    <form action="<?=base_url();?>site/book_package" method="post">
+                    <form action="<?=base_url();?>book_package" method="post">
                         <input type="hidden" value="<?=$data['id'];?>" name="package_id">
                         <button type="submit" class="btn btn-primary">
                             Order now

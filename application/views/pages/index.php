@@ -14,7 +14,7 @@
             <div class="carousel-caption">
                 <div >
                     <h2>
-                        <a href="<?=base_url();?>site/view_single/<?=$img_data[$i]['id'];?>"  style="background:black;opacity:0.9">
+                        <a href="<?=base_url();?>view_single/<?=$img_data[$i]['id'];?>"  style="background:black;opacity:0.9">
                             <?=$img_data[$i]['title'];?>
                         </a>
                     </h2>
@@ -53,7 +53,7 @@
                 <h4>Package description:</h4>
                 <hr>
                 <p><?=substr($data['description'], 0,100);?></p>
-                <form action="<?=base_url();?>site/package" method="post">
+                <form action="<?=base_url();?>package" method="post">
                     <input type="hidden" name="package_id" value="<?=$data['id'];?>">
                     <input type="submit" class="btn btn-info" name="btnSubmit" value="Learn More">
                 </form>
@@ -109,10 +109,3 @@
     </div>
 </div>
 <!-- /.row -->
-
-<!-- Script to Activate the Carousel -->
-<script>
-$('.carousel').carousel({
-    interval: 2000 //changes the speed
-})
-</script>

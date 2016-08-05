@@ -38,7 +38,17 @@
 |
 */
 
+$route['admin'] = "admin/index";
+$route['admin/(:any)'] = "admin/$1";
+
+$route['user'] = "user/index";
+$route['user/(:any)'] = "user/$1";
+
+$route['action'] = "action/index";
+$route['action/(:any)'] = "action/$1";
+
 $route['default_controller'] = "site";
+$route['(:any)'] = "site/$1";
 $route['404_override'] = '';
 
 

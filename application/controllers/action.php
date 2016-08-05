@@ -28,7 +28,7 @@ class Action extends CI_Controller{
 	public function user_edit(){
 		if(!$this->userperms("admin")){
 			$this->session->set_flashdata('err_success','You must be logged in as admin to add user.<br> Please logIn as admin to continue');
-			redirect('site/login_page');
+			redirect('login_page');
 		}
 
 		$id = $this->uri->segment(3);
@@ -46,7 +46,7 @@ class Action extends CI_Controller{
 	public function edit_pro(){
 		if(!$this->userperms("admin")){
 			$this->session->set_flashdata('err_success','You must be logged in as admin to add user.<br> Please logIn as admin to continue');
-			redirect('site/login_page');
+			redirect('login_page');
 		}
 
 		if($_POST){
@@ -145,7 +145,7 @@ class Action extends CI_Controller{
 	public function pricing_delete(){
 		if(!$this->userperms("admin")){
 			$this->session->set_flashdata('err','Login as admin to add user');
-			redirect('site/login');
+			redirect('login_page');
 		}
 		$id = $this->uri->segment(3);
 		if(!empty($id) and is_numeric($id)){
@@ -161,7 +161,7 @@ class Action extends CI_Controller{
 	public function user_delete(){
 		if(!$this->userperms("admin")){
 			$this->session->set_flashdata('err_success','You must be logged in as admin to delete.<br> Please logIn as admin to continue');
-			redirect('site/login_page');
+			redirect('login_page');
 		}
 	
 		$id = $this->uri->segment(3);
@@ -519,8 +519,10 @@ class Action extends CI_Controller{
 	public function delete_package(){
 		if($this->session->userdata('usertype')=="admin"){
 			$id = $this->uri->segment(3);
+			$img = $this->db->get_where('packages',array('id'=>$id))->result();
 			if(!empty($id) and is_numeric($id)){
 				if($this->admin_model->delete_package($id)){
+					unlink('uploads/package_image/'.$img[0]->image);
 					$this->session->set_flashdata('err_success','One package is successfully delete from the database');
 					redirect('action/package_list');
 				}

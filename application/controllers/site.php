@@ -20,12 +20,15 @@
 	 	public function view_single(){
 	 		$this->load->view('includes/header');
 	 		$this->load->view('includes/navigation');
-	 		$id = $this->uri->segment(3);
+	 		$id = $this->uri->segment(2);
 	 		if(empty($id)){
 	 			redirect('site');
 	 		}
 	 		$cond = array('id'=>$id);
 	 		$data['package'] = $this->site_model->selectby_cond('packages',$cond);
+	 		if(empty($data['package'])){
+	 			redirect('site');
+	 		}
 	 		$this->load->view('pages/view_single',$data);
 	 		$this->load->view('includes/footer');
 	 	}
@@ -47,40 +50,45 @@
 	 	public function contact(){
 	 		$this->load->view('includes/header');
 	 		$this->load->view('includes/navigation');
+
+	 		if($_POST){
+		 		$this->site_model->contact();
+		 	}
+
 	 		$this->load->view('pages/contact');
 	 		$this->load->view('includes/footer');
 	 	}
 
-	 	public function contact_us(){
-		 	if($_POST){
-		 		$name = $this->input->post('name');
-		 		$email =  $this->input->post('email');
-		 		$phone =  $this->input->post('phone');
-		 		$message =  $this->input->post('message');
-		 		if(empty($name) or empty($email) or empty($phone) or empty($message)){
-		 			$this->session->set_flashdata('err_success',"All fields are striclty required");
-		 			redirect('site/contact');
-		 		}
-		 		else{
-		 			$email_body = "You have received a new message from your website's contact form.\n\n"."Here are the details:\n\nName: $name\n\nPhone: $phone\n\nEmail: $email\n\nMessage:\n$message";
-					$headers = "From: noreply@your-domain.com\n";
-					$headers .= "Reply-To: $email";
-		 			$mail = mail($to, $subject, $email_body, $headers);
-		 			if($mail){
-		 				$this->session->set_flashdata('err_success',"Your message was successfully sent");
-		 				redirect('site/contact');
-		 			}
-		 			else{
-		 				$this->session->set_flashdata('err_success',"Something went wrong");
-		 				redirect('site/contact');
-		 			}
-		 		}
-		 	}
-		 	else{
-		 		redirect('site/contact');
-		 	}
+	 	// public function contact_us(){
+		 // 	if($_POST){
+		 // 		$name = $this->input->post('name');
+		 // 		$email =  $this->input->post('email');
+		 // 		$phone =  $this->input->post('phone');
+		 // 		$message =  $this->input->post('message');
+		 // 		if(empty($name) or empty($email) or empty($phone) or empty($message)){
+		 // 			$this->session->set_flashdata('err_success',"All fields are striclty required");
+		 // 			redirect('site/contact');
+		 // 		}
+		 // 		else{
+		 // 			$email_body = "You have received a new message from your website's contact form.\n\n"."Here are the details:\n\nName: $name\n\nPhone: $phone\n\nEmail: $email\n\nMessage:\n$message";
+			// 		$headers = "From: noreply@your-domain.com\n";
+			// 		$headers .= "Reply-To: $email";
+		 // 			$mail = mail($to, $subject, $email_body, $headers);
+		 // 			if($mail){
+		 // 				$this->session->set_flashdata('err_success',"Your message was successfully sent");
+		 // 				redirect('site/contact');
+		 // 			}
+		 // 			else{
+		 // 				$this->session->set_flashdata('err_success',"Something went wrong");
+		 // 				redirect('site/contact');
+		 // 			}
+		 // 		}
+		 // 	}
+		 // 	else{
+		 // 		redirect('site/contact');
+		 // 	}
 	 	
-	 	}
+	 	// }
 
 	 	public function blogs(){
 	 		$this->load->view('includes/header');
@@ -115,7 +123,7 @@
 		 		$this->load->view('includes/footer');
 	 		}
 	 		else{
-	 			redirect('site/index');
+	 			redirect('index');
 	 		}
 	 	}
 	 	
@@ -156,22 +164,22 @@
 	 					);
 	 				if($this->site_model->order_package($data)){
 	 					$this->session->set_flashdata('msg','Thanks for ordering package from our travel agency. We will notify you when its available. Your package is successfully added for further processing.');
-	 					redirect('site/success_page');
+	 					redirect('success_page');
 	 				}
 	 				else{
 	 					$this->session->set_flashdata('err_msg','Unable to add your package.<br>Please try again');
-	 					redirect('site/order_package');
+	 					redirect('order_package');
 	 				}
 	 			}
 	 			else{
 	 				$this->session->set_flashdata('name_err',form_error('name'));
 	 				$this->session->set_flashdata('email_err',form_error('email'));
 	 				$this->session->set_flashdata('country_err',form_error('country'));
-	 				redirect('site/order_package');
+	 				redirect('order_package');
 	 			}
 	 		}
 	 		else{
-	 			redirect('site/order_package');
+	 			redirect('order_package');
 	 		}
 	 	}
 
@@ -211,22 +219,22 @@
 	 					);
 	 				if($this->site_model->book_package($data)){
 	 					$this->session->set_flashdata('msg','Thanks for booking package from our travel agency. We will notify you when its available. Your package is successfully booked.');
-	 					redirect('site/success_page');
+	 					redirect('success_page');
 	 				}
 	 				else{
 	 					$this->session->set_flashdata('err_msg','Unable to book this package for you.<br>Please try again');
-	 					redirect('site/book_package');
+	 					redirect('book_package');
 	 				}
 	 			}
 	 			else{
 	 				$this->session->set_flashdata('name_err',form_error('name'));
 	 				$this->session->set_flashdata('email_err',form_error('email'));
 	 				$this->session->set_flashdata('country_err',form_error('country'));
-	 				redirect('site/book_package');
+	 				redirect('book_package');
 	 			}
 	 		}
 	 		else{
-	 			redirect('site/book_package');
+	 			redirect('book_package');
 	 		}
 	 	}
 

@@ -57,32 +57,44 @@
 <!-- Contact Form -->
 <div class="row">
     <div class="col-md-8">
-        <h3>Send us a Message</h3>
-        <form action="<?=base_url()?>site/contact_us" method="post">
+        <h3>Send us a Message <sup style="font-size:14px;">*All fields are strictly required</sup></h3>
+        <form action="" method="post">
             <!-- For success/fail messages -->
             <div><h3 style="color:red;"><?=$this->session->flashdata('err_success');?></h3></div>
             <div class="control-group form-group">
                 <div class="controls">
                     <label>Full Name:</label>
-                    <input type="text" name="name" placeholder="Your full name" class="form form-control">
+                    <input type="text" name="name" placeholder="Your full name" class="form form-control" value="<?=set_value('name')?>">
+                    <?php if(form_error('name')){ ?>
+                        <?=form_error('name','<p class="text-danger">')?>
+                    <?php } ?>
                 </div>
             </div>
             <div class="control-group form-group">
                 <div class="controls">
                     <label>Phone Number:</label>
-                    <input type="text" name="phone" placeholder="Phone number" class="form form-control">
+                    <input type="text" name="phone" placeholder="Phone number" class="form form-control" value="<?=set_value('phone')?>">
+                     <?php if(form_error('phone')){ ?>
+                        <?=form_error('phone','<p class="text-danger">')?>
+                    <?php } ?>
                 </div>
             </div>
             <div class="control-group form-group">
                 <div class="controls">
                     <label>Email Address:</label>
-                    <input type="email" name="email" placeholder="Your email address" class="form form-control">
+                    <input type="email" name="email" placeholder="Your email address" class="form form-control" value="<?=set_value('email')?>">
+                     <?php if(form_error('email')){ ?>
+                        <?=form_error('email','<p class="text-danger">')?>
+                    <?php } ?>
                 </div>
             </div>
             <div class="control-group form-group">
                 <div class="controls">
                     <label>Message:</label>
-                    <textarea class="form form-control" rows="10" placeholder="Enter your message here" name="message"></textarea>    
+                    <textarea class="form form-control" rows="10" placeholder="Enter your message here" name="message"><?=set_value('message')?></textarea>   
+                     <?php if(form_error('message')){ ?>
+                        <?=form_error('message','<p class="text-danger">')?>
+                    <?php } ?> 
                 </div>
             </div>
             

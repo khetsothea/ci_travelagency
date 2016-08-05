@@ -57,7 +57,7 @@
             foreach($slider as $value){
                 $img_data[] = $value;
         ?>
-        <li><a href="<?=base_url();?>site/view_single/<?=$img_data[$i]['id'];?>"><?=$img_data[$i]['title'];?></a></li>
+        <li><a href="<?=base_url();?>view_single/<?=$img_data[$i]['id'];?>"><?=$img_data[$i]['title'];?></a></li>
         <?php $i++; $sn++; } ?>
 
 
@@ -77,7 +77,7 @@
             $img_data[] = $value;
     ?>
     <div class="col-sm-2">
-        <a href="<?=base_url();?>site/view_single/<?=$img_data[$i]['id'];?>">
+        <a href="<?=base_url();?>view_single/<?=$img_data[$i]['id'];?>">
             <img class="img-responsive img-hover img-related" src="<?=base_url();?>uploads/package_image/<?=$img_data[$i]['image'];?>" style="width:100%;height:100px;" alt="">
         </a>
     </div>

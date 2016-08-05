@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -15,37 +15,37 @@
       <ul class="nav navbar-nav">        
         <ul class="nav navbar-nav navbar-right">
           <li class="<?php if($this->uri->segment(2)=="about"){echo "active";}?>">
-                        <a href="<?=base_url();?>site/about">About</a>
+                        <a href="<?=base_url();?>about">About</a>
                     </li>
                     <li class="<?php if($this->uri->segment(2)=="services"){echo "active";}?>">
-                        <a href="<?=base_url();?>site/services">Services</a>
+                        <a href="<?=base_url();?>services">Services</a>
                     </li>
                     <li class="<?php if($this->uri->segment(2)=="contact"){echo "active";}?>">
-                        <a href="<?=base_url();?>site/contact">Contact</a>
+                        <a href="<?=base_url();?>contact">Contact</a>
                     </li>
                     <li class="<?php if($this->uri->segment(2)=="blogs"){echo "active";}?>">
-                        <a href="<?=base_url();?>site/blogs">Blogs</a>
+                        <a href="<?=base_url();?>blogs">Blogs</a>
                     </li>
                     <li class="<?php if($this->uri->segment(2)=="portfolio"){echo "active";}?>">
-                        <a href="<?=base_url();?>site/portfolio">Portfolio</a>
+                        <a href="<?=base_url();?>portfolio">Portfolio</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="<?=base_url();?>site/full_width">Full Width Page</a>
+                                <a href="<?=base_url();?>full_width">Full Width Page</a>
                             </li>
                             <li>
-                                <a href="<?=base_url();?>site/sidebar">Sidebar Page</a>
+                                <a href="<?=base_url();?>sidebar">Sidebar Page</a>
                             </li>
                             <li>
-                                <a href="<?=base_url();?>site/faq">FAQ</a>
+                                <a href="<?=base_url();?>faq">FAQ</a>
                             </li>
                             <li>
-                                <a href="<?=base_url();?>site/errors">Errors</a>
+                                <a href="<?=base_url();?>errors">Errors</a>
                             </li>
                             <li>
-                                <a href="<?=base_url();?>site/pricing">Pricing Table</a>
+                                <a href="<?=base_url();?>pricing">Pricing Table</a>
                             </li>
                         </ul>
                     </li>

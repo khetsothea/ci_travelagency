@@ -3,7 +3,7 @@
 	<hr>
 	<h3 style="text-align:center;"><?php if($this->session->flashdata('msg')){echo $this->session->flashdata('msg')."<hr>";}?></h3>
 	<div class="col-md-6 col-md-offset-3">
-		<form action="<?=base_url()?>site/orderpackage_pro" method="post">
+		<form action="<?=base_url()?>orderpackage_pro" method="post">
 			<label for="name">Your Name:</label>
 			<input type="text" name="name" class="form-control" placeholder="Your full name" value="<?=set_value('name');?>">
 			<span>

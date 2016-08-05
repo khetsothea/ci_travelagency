@@ -8,7 +8,7 @@
             <small>Subheading</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="<?=base_url();?>site/contact">Contact / Home</a>
+            <li><a href="<?=base_url();?>index">Home</a>
             </li>
             <li class="active">FAQ</li>
         </ol>

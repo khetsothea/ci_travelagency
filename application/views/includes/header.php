@@ -25,7 +25,27 @@
     body{
         background:#e9e4e6;
     }
+     #toTop {
+        position: fixed;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        background: #999999;
+        opacity: 0.4;
+        filter: alpha(opacity=40);
+        width: 55px;
+        height: 55px;
+        bottom: 5px;
+        right: 5px;
+        cursor: pointer;
+        color: #ffffff;
+        font-size: 32px;
+        text-align: center;
+        display: none;
+        padding: 10px 0 0 2px;
+        z-index: 14;
+    }
     </style>
 
 </head>
-<body style="width:100%;">
+<body>

@@ -6,6 +6,6 @@ if($this->session->flashdata('msg')){
 	echo "</div></h2>";
 }
 else{
-	redirect('site/book_package');
+	redirect('book_package');
 }
 

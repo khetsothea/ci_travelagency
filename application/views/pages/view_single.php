@@ -7,7 +7,7 @@
 	<h4>
 		<a href="<?=base_url()?>site">Go to home page</a>
 		<br>
-		<a href="<?=base_url()?>site/packages">View all packages</a>
+		<a href="<?=base_url()?>packages">View all packages</a>
 	</h4>
 	
 </div>

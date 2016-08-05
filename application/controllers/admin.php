@@ -1,5 +1,6 @@
 <?php 
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
 class Admin extends CI_Controller{
 
 	public function __construct(){
@@ -57,30 +58,30 @@ class Admin extends CI_Controller{
 				}
 				else{
 					$err = $this->session->set_flashdata('err',"Invalid login. Please, login with your correct credentials");
-					redirect('site/login_page');
+					redirect('login_page');
 				}
 			}
 			else{
 				$this->session->set_flashdata('username_err',form_error('username'));
 				$this->session->set_flashdata('password_err',form_error('password'));
 				$this->session->set_flashdata('usertype_err',form_error('usertype'));
-				redirect('site/login_page');
+				redirect('login_page');
 			}
 		}
 		else{
-			redirect('site/login_page');
+			redirect('login_page');
 		}
 	}
 
 	public function logout(){
 		$this->session->sess_destroy();
-		redirect('site/index');
+		redirect('index');
 	}
 
 	public function add_user(){
 		if(!$this->userperms("admin")){
 			$this->session->set_flashdata('err','Login as admin to add user');
-			redirect('site/login_page');
+			redirect('login_page');
 		}
 		$this->load->view('admin/inc/admin_header');
 		$this->load->view('admin/inc/admin_nav');
@@ -92,7 +93,7 @@ class Admin extends CI_Controller{
 	public function adduser_pro(){
 		if(!$this->userperms("admin")){
 			$this->session->set_flashdata('err_success','You must be logged in as admin to add user.<br> Please logIn as admin to continue');
-			redirect('site/login_page');
+			redirect('login_page');
 		}
 		if($_POST){
 			$full_name = $this->input->post('full_name');
@@ -180,7 +181,7 @@ class Admin extends CI_Controller{
 	public function add_admin(){
 		if(!$this->userperms("admin")){
 			$this->session->set_flashdata('err_success','You must be logged in as admin to add new admin.<br> Please logIn as admin to continue');
-			redirect('site/login_page');
+			redirect('login_page');
 		}
 		$this->load->view('admin/inc/admin_header');
 		$this->load->view('admin/inc/admin_nav');
@@ -192,7 +193,7 @@ class Admin extends CI_Controller{
 	public function addadmin_pro(){
 		if(!$this->userperms("admin")){
 			$this->session->set_flashdata('err_success','You must be logged in as admin to add user.<br> Please logIn as admin to continue');
-			redirect('site/login_page');
+			redirect('login_page');
 		}
 		if($_POST){
 			$full_name = $this->input->post('full_name');
@@ -262,7 +263,7 @@ class Admin extends CI_Controller{
 	public function manage_users(){
 		if(!$this->userperms("admin")){
 			$this->session->set_flashdata('err_success','You must be logged in as admin to add user.<br> Please logIn as admin to continue');
-			redirect('site/login_page');
+			redirect('login_page');
 		}
 		$this->load->view('admin/inc/admin_header');
 		$this->load->view('admin/inc/admin_nav');
@@ -305,7 +306,7 @@ class Admin extends CI_Controller{
 		if(!empty($id)){
 			if(isset($_POST)){
 				if($this->session->userdata=="admin"){
-				$table = "admin";
+					$table = "admin";
 				}
 				else{
 					$table = "users";
@@ -360,7 +361,7 @@ class Admin extends CI_Controller{
 		if(!empty($id)){
 			if($_POST){
 				if($this->session->userdata('usertype')=="admin"){
-				$table = "admin";
+					$table = "admin";
 				}
 				else{
 					$table = "users";

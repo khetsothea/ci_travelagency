@@ -3,7 +3,7 @@
 	<hr>
 	<h3><?php if($this->session->flashdata('msg')){echo $this->session->flashdata('msg')."<hr>";}?></h3>
 	<div class="col-md-6 col-md-offset-3">
-		<form action="<?=base_url()?>site/bookpackage_pro" method="post">
+		<form action="<?=base_url()?>bookpackage_pro" method="post">
 			<?php 
 				$id = $this->session->userdata('package_id');
 				if(empty($id)){ 

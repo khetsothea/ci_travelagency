@@ -22,7 +22,7 @@
 				<img src="<?=$img_path;?>" style="float:left;margin-right:10px;height:200px;width:50%;">
 				<?php } ?>
 				<h4><?=$data[$i]['description'];?></h4>
-				<form action="<?=base_url();?>site/book_package" method="post">
+				<form action="<?=base_url();?>book_package" method="post">
 					<input type="hidden" value="<?=$data[$i]['id'];?>" name="package_id">
 					<button type="submit" class="btn btn-primary">
 						Book package
